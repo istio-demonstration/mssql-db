@@ -50,9 +50,9 @@ spec:
             value: "Y"
           - name: MSSQL_SA_PASSWORD
             valueFrom:
-              secretKeyRef:
-                name: user-pass
-                key: sapassword
+              configMapKeyRef:
+                name: data-configuration
+                key: database.password
         volumeMounts:
           - name: db-persistent-storage
             mountPath: /var/opt/mssql
